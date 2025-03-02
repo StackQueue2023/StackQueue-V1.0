@@ -98,7 +98,6 @@ app.post("/postJobProfile", async (req, res) => {
 
 
 async function sendJobProfileMail(jobProfile, callback) {
-    const nodemailer = require('nodemailer');
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
@@ -154,7 +153,6 @@ async function sendJobProfileMail(jobProfile, callback) {
 
 
 async function sendContactMail(user, callback) {
-    const nodemailer = require('nodemailer');
     const transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587,
@@ -235,7 +233,6 @@ app.post("/postEnquiry",async(req, res)=>{
     });
 })
 async function enquiryMailToAdmin(user, callback) {
-    const nodemailer = require('nodemailer');
     
     // Create transporter for Gmail
     const transporter = nodemailer.createTransport({
@@ -379,7 +376,7 @@ app.post("/postInternshipEnquiry", async (req, res) => {
 });
 
 async function internshipEnquiryMail(user, callback) {
-    const nodemailer = require('nodemailer');
+    
 
     // Create transporter for Gmail
     const transporter = nodemailer.createTransport({
