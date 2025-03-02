@@ -221,16 +221,16 @@ app.post("/postEnquiry",async(req, res)=>{
     let user=req.body;
     await mongoose.connection.collection('enquiry').insertOne(req.body).then((register)=>{
         res.send(register);
+        enquiryMailToAdmin(user,(err,info)=>{
+            if(err){
+                console.log(err);
+            }
+            else{
+            console.log("Email sent successfully");
+            res.send(info);
+            }
+        });
     })
-    enquiryMailToAdmin(user,(err,info)=>{
-        if(err){
-            console.log(err);
-        }
-        else{
-        console.log("Email sent successfully");
-        res.send(info);
-        }
-    });
 })
 async function enquiryMailToAdmin(user, callback) {
     
